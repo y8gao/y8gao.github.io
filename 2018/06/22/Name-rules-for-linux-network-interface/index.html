@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="一叶&#39; Blogs">
 <meta property="og:description" content="Name rules for linux network interface在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自FreeDesktop的Predictable Network Interface Names， 以下命名规则亦是摘自与此。 Name Rules Names incorporating Firmware/BIOS pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T02:51:58.953Z">
+<meta property="og:updated_time" content="2018-06-22T05:49:06.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Name-rules-for-linux-network-interface.md">
 <meta name="twitter:description" content="Name rules for linux network interface在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自FreeDesktop的Predictable Network Interface Names， 以下命名规则亦是摘自与此。 Name Rules Names incorporating Firmware/BIOS pr">
@@ -378,7 +378,10 @@
 <li>Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1)</li>
 <li>Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0)</li>
 <li>Names incorporating the interfaces’s MAC address (example: enx78e7d1ea46da)</li>
-<li>Classic, unpredictable kernel-native ethX naming (example: eth0)</li>
+<li><p>Classic, unpredictable kernel-native ethX naming (example: eth0)</p>
+<p>By default, systemd v197 will now name interfaces following policy 1) if that information from the firmware is applicable and available, falling back to 2) if that information from the firmware is applicable and available, falling back to 3) if applicable, falling back to 5) in all other cases. Policy 4) is not used by default, but is available if the user chooses so.</p>
+<p>This combined policy is only applied as last resort. That means, if the system has biosdevname installed, it will take precedence. If the user has added udev rules which change the name of the kernel devices these will take precedence too. Also, any distribution specific naming schemes generally take precedence.</p>
+</li>
 </ol>
 
       
