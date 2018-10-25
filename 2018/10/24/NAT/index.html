@@ -121,7 +121,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://y8gao.github.io/images/nat-chains.gif">
 <meta property="og:image" content="http://y8gao.github.io/images/transparent-proxy-en.gif">
-<meta property="og:updated_time" content="2018-10-24T13:19:32.692Z">
+<meta property="og:updated_time" content="2018-10-25T01:26:43.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NAT - Network Address Translation">
 <meta name="twitter:description" content="​        最近工作中有涉及到NAT在Linux中的使用，主要是 iptables 的使用，这里根据参考的文档， 做一些摘录总结。 IntroductionNetwork Address Translation generally involves “re-write the source/destination addresses of IP packets as they pass th">
@@ -347,6 +347,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index">
+                    <span itemprop="name">Netwrok</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -381,11 +414,11 @@
 <p><img src="/images/nat-chains.gif" alt="nat-chains"></p>
 <p>The chains <strong>PREROUTING</strong> and <strong>POSTROUTING</strong> are the most important ones.</p>
 <h3 id="NAT-chains"><a href="#NAT-chains" class="headerlink" title="NAT chains"></a>NAT chains</h3><h4 id="PREROUTING-chain"><a href="#PREROUTING-chain" class="headerlink" title="PREROUTING chain"></a><code>PREROUTING</code> chain</h4><ul>
-<li>The <strong>PREROUTING</strong> chain is responsible for packets that just arrived at the network interface. <ul>
+<li>The <strong>PREROUTING</strong> chain is responsible for packets that just arrived at the network interface.<ul>
 <li>In this point, no routing decision has taken place, therefore it is not yet known whether the packet would be interpreted locally or whether it would be forwarded to another machine located at another network interface.</li>
-<li>After the packet has passed the <strong>PREROUTING</strong> chain the routing decision is made. <ul>
+<li>After the packet has passed the <strong>PREROUTING</strong> chain the routing decision is made.<ul>
 <li>In case that the local machine is the recipient, the packet will be directed to the corresponding process and we do not have to worry about NAT anymore.</li>
-<li>In case that the recipient is located in a (sub-)net located at a different network interface, the packet will be forwarded to that interface, provided that the machine is configured to do so. </li>
+<li>In case that the recipient is located in a (sub-)net located at a different network interface, the packet will be forwarded to that interface, provided that the machine is configured to do so.</li>
 </ul>
 </li>
 </ul>
@@ -393,7 +426,7 @@
 </ul>
 <h4 id="POSTROUTING-chain"><a href="#POSTROUTING-chain" class="headerlink" title="POSTROUTING chain"></a><code>POSTROUTING</code> chain</h4><ul>
 <li>The <strong>POSTROUTING</strong> chain is responsible for packets that just before our forwarded packet leaves the machine.<ul>
-<li>The packet passes the <strong>POSTROUTING</strong> chain and then leaves through the network interface. </li>
+<li>The packet passes the <strong>POSTROUTING</strong> chain and then leaves through the network interface.</li>
 </ul>
 </li>
 </ul>
@@ -404,14 +437,14 @@
 </li>
 </ul>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul>
-<li><h3 id="Enable-required-features"><a href="#Enable-required-features" class="headerlink" title="Enable required features"></a>Enable required features</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMPORTANT: Activate IP-forwarding in the kernel!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabled by default!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="comment"># Or, </span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> for both above, it would fall back after system restart.</span></span><br><span class="line"><span class="comment"># To permenantly enable it, uncomment this</span></span><br><span class="line"><span class="comment"># line "# net.ipv4.ip_forward=1" as belowin /etc/sysctl.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load various modules. Usually they are already loaded </span></span><br><span class="line"><span class="comment"># (especially for newer kernels), in that case </span></span><br><span class="line"><span class="comment"># the following commands are not needed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iptables module:</span></span><br><span class="line">modprobe ip_tables</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate connection tracking</span></span><br><span class="line"><span class="comment"># (connection's status are taken into account)</span></span><br><span class="line">modprobe ip_conntrack</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for IRC:</span></span><br><span class="line">modprobe ip_conntrack_irc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for FTP:</span></span><br><span class="line">modprobe ip_conntrack_ftp</span><br></pre></td></tr></table></figure>
+<li><h3 id="Enable-required-features"><a href="#Enable-required-features" class="headerlink" title="Enable required features"></a>Enable required features</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMPORTANT: Activate IP-forwarding in the kernel!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabled by default!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="comment"># Or,</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> for both above, it would fall back after system restart.</span></span><br><span class="line"><span class="comment"># To permenantly enable it, uncomment this</span></span><br><span class="line"><span class="comment"># line "# net.ipv4.ip_forward=1" as belowin /etc/sysctl.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load various modules. Usually they are already loaded</span></span><br><span class="line"><span class="comment"># (especially for newer kernels), in that case</span></span><br><span class="line"><span class="comment"># the following commands are not needed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iptables module:</span></span><br><span class="line">modprobe ip_tables</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate connection tracking</span></span><br><span class="line"><span class="comment"># (connection's status are taken into account)</span></span><br><span class="line">modprobe ip_conntrack</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for IRC:</span></span><br><span class="line">modprobe ip_conntrack_irc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for FTP:</span></span><br><span class="line">modprobe ip_conntrack_ftp</span><br></pre></td></tr></table></figure>
 </li>
 <li><h3 id="Command-breakdown"><a href="#Command-breakdown" class="headerlink" title="Command breakdown"></a>Command breakdown</h3><ul>
 <li><h4 id="Command-pattern"><a href="#Command-pattern" class="headerlink" title="Command pattern"></a>Command pattern</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Abstract structure of an iptables instruction:</span></span><br><span class="line">iptables [-t table] <span class="built_in">command</span> [match pattern] [action]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
-<li><h4 id="Choose-a-table"><a href="#Choose-a-table" class="headerlink" title="Choose a table"></a>Choose a table</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following "chain" represents</span></span><br><span class="line"><span class="comment"># one of the chains PREROUTING, OUTPUT and POSTROUTING</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># add a rule:</span></span><br><span class="line">iptables -t nat -A chain [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list rules:</span></span><br><span class="line">iptables -t nat -L</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove user-defined chain with index 'myindex':</span></span><br><span class="line">iptables -t nat -D chain myindex</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all rules in chain 'chain':</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -F chain</span><br></pre></td></tr></table></figure>
+<li><h4 id="Choose-a-table"><a href="#Choose-a-table" class="headerlink" title="Choose a table"></a>Choose a table</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following "chain" represents</span></span><br><span class="line"><span class="comment"># one of the chains PREROUTING, OUTPUT and POSTROUTING</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># add a rule:</span></span><br><span class="line">iptables -t nat -A chain [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list rules:</span></span><br><span class="line">iptables -t nat -L</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove user-defined chain with index 'myindex':</span></span><br><span class="line">iptables -t nat -D chain myindex</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all rules in chain 'chain':</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -F chain</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="Choose-match-patterns"><a href="#Choose-match-patterns" class="headerlink" title="Choose match patterns"></a>Choose match patterns</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># actions to be taken on matched packets</span></span><br><span class="line"><span class="comment"># will be abbreviated by '[...]'.</span></span><br><span class="line"><span class="comment"># Depending on the match pattern the appropriate chain is selected.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># UDP packets to 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p udp -d 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets from 192.168.x.x arriving at eth0:</span></span><br><span class="line">iptables -t nat -A PREROUTING -s 192.168.0.0/16 -i eth0 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets except TCP packets and except packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A PREROUTING -p ! tcp -s ! 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># packets leaving at eth1:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2, port 12345 to 12356</span></span><br><span class="line"><span class="comment"># to 123.123.123.123, Port 22</span></span><br><span class="line"><span class="comment"># (a backslash indicates contination at the next line)</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 \</span><br><span class="line">--sport 12345:12356 -d 123.123.123.123 --dport 22 [...]</span><br></pre></td></tr></table></figure>
 </li>
