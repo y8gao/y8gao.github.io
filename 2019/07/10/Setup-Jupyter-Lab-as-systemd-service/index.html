@@ -100,7 +100,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,Jupyter,JupyterLab,Python," />
 
 
 
@@ -111,16 +111,18 @@
 
 
 
-<meta name="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一叶のBlogs">
-<meta property="og:url" content="http://y8gao.github.io/index.html">
+<meta name="description" content="Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents. My environment is conda environment on Ubuntu18.04, but system">
+<meta name="keywords" content="Linux,Jupyter,JupyterLab,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup Jupyter Lab as systemd service">
+<meta property="og:url" content="http://y8gao.github.io/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/index.html">
 <meta property="og:site_name" content="一叶のBlogs">
-<meta property="og:description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta property="og:description" content="Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents. My environment is conda environment on Ubuntu18.04, but system">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-11T03:03:07.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一叶のBlogs">
-<meta name="twitter:description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta name="twitter:title" content="Setup Jupyter Lab as systemd service">
+<meta name="twitter:description" content="Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents. My environment is conda environment on Ubuntu18.04, but system">
 
 
 
@@ -150,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://y8gao.github.io/"/>
+  <link rel="canonical" href="http://y8gao.github.io/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/"/>
 
 
 
 
 
-  <title>一叶のBlogs</title>
+  <title>Setup Jupyter Lab as systemd service | 一叶のBlogs</title>
   
 
 
@@ -184,8 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,9 +289,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -320,9 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/" itemprop="url">Setup Jupyter Lab as systemd service</a></h1>
+          <h1 class="post-title" itemprop="name headline">Setup Jupyter Lab as systemd service</h1>
         
 
         <div class="post-meta">
@@ -405,9 +404,7 @@
       
 
       
-        
-          
-            <p>Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents.</p>
+        <p>Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents.</p>
 <p>My environment is conda environment on Ubuntu18.04, but systemd service file for CentOS  also would be shown. Now here we go!</p>
 <h3 id="Install-Jupyter-lab"><a href="#Install-Jupyter-lab" class="headerlink" title="Install Jupyter lab"></a>Install Jupyter lab</h3><p>In my environment, I install the jupyter, jupyter-lab in conda’s <code>base</code> environment.</p>
 <p>The command is like this:</p>
@@ -486,8 +483,6 @@
 <li><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html" target="_blank" rel="noopener">Running a notebook server</a></li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -502,388 +497,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/10/24/NAT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="一叶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一叶のBlogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/NAT/" itemprop="url">NAT - Network Address Translation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T21:19:32+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index">
-                    <span itemprop="name">Netwrok</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-
+            <a href="/tags/Jupyter/" rel="tag"># Jupyter</a>
           
-            
+            <a href="/tags/JupyterLab/" rel="tag"># JupyterLab</a>
           
-
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​        最近工作中有涉及到NAT在Linux中的使用，主要是 <code>iptables</code> 的使用，这里根据<a href="#Reference">参考的文档</a>， 做一些摘录总结。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Network Address Translation generally involves “<em>re-write the source/destination addresses of IP packets as they pass through a router or firewall</em>“.</p>
-<h2 id="Linux-and-Netfilter"><a href="#Linux-and-Netfilter" class="headerlink" title="Linux and Netfilter"></a>Linux and Netfilter</h2><p>Linux kernel usually processes a packet filter framework called <strong>netfilter</strong>. This framework enables a Linux machine with an appropriate number of network cards(interfaces) to become a router capable of NAT.</p>
-<p>关于NAT, 在<code>iptables</code>里有三个 predefined chains: <strong>PREROUTING</strong>， <strong>OUTPUT</strong>,  和<strong>POSTROUTING</strong>. 如下图所示：</p>
-<p><img src="/images/nat-chains.gif" alt="nat-chains"></p>
-<p>The chains <strong>PREROUTING</strong> and <strong>POSTROUTING</strong> are the most important ones.</p>
-<h3 id="NAT-chains"><a href="#NAT-chains" class="headerlink" title="NAT chains"></a>NAT chains</h3><h4 id="PREROUTING-chain"><a href="#PREROUTING-chain" class="headerlink" title="PREROUTING chain"></a><code>PREROUTING</code> chain</h4><ul>
-<li>The <strong>PREROUTING</strong> chain is responsible for packets that just arrived at the network interface.<ul>
-<li>In this point, no routing decision has taken place, therefore it is not yet known whether the packet would be interpreted locally or whether it would be forwarded to another machine located at another network interface.</li>
-<li>After the packet has passed the <strong>PREROUTING</strong> chain the routing decision is made.<ul>
-<li>In case that the local machine is the recipient, the packet will be directed to the corresponding process and we do not have to worry about NAT anymore.</li>
-<li>In case that the recipient is located in a (sub-)net located at a different network interface, the packet will be forwarded to that interface, provided that the machine is configured to do so.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="POSTROUTING-chain"><a href="#POSTROUTING-chain" class="headerlink" title="POSTROUTING chain"></a><code>POSTROUTING</code> chain</h4><ul>
-<li>The <strong>POSTROUTING</strong> chain is responsible for packets that just before our forwarded packet leaves the machine.<ul>
-<li>The packet passes the <strong>POSTROUTING</strong> chain and then leaves through the network interface.</li>
-</ul>
-</li>
-</ul>
-<h4 id="OUTPUT-chain"><a href="#OUTPUT-chain" class="headerlink" title="OUTPUT chain"></a><code>OUTPUT</code> chain</h4><ul>
-<li>The <strong>OUTPUT</strong> chain is for locally generated packets.<ul>
-<li>Instead of passing through the <strong>PREROUTING</strong> chain, it passes the <strong>OUTPUT</strong> chain and then moves on to the <strong>POSTROUTING</strong> chain.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul>
-<li><h3 id="Enable-required-features"><a href="#Enable-required-features" class="headerlink" title="Enable required features"></a>Enable required features</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMPORTANT: Activate IP-forwarding in the kernel!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabled by default!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="comment"># Or,</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> for both above, it would fall back after system restart.</span></span><br><span class="line"><span class="comment"># To permenantly enable it, uncomment this</span></span><br><span class="line"><span class="comment"># line "# net.ipv4.ip_forward=1" as belowin /etc/sysctl.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load various modules. Usually they are already loaded</span></span><br><span class="line"><span class="comment"># (especially for newer kernels), in that case</span></span><br><span class="line"><span class="comment"># the following commands are not needed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iptables module:</span></span><br><span class="line">modprobe ip_tables</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate connection tracking</span></span><br><span class="line"><span class="comment"># (connection's status are taken into account)</span></span><br><span class="line">modprobe ip_conntrack</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for IRC:</span></span><br><span class="line">modprobe ip_conntrack_irc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for FTP:</span></span><br><span class="line">modprobe ip_conntrack_ftp</span><br></pre></td></tr></table></figure>
-</li>
-<li><h3 id="Command-breakdown"><a href="#Command-breakdown" class="headerlink" title="Command breakdown"></a>Command breakdown</h3><ul>
-<li><h4 id="Command-pattern"><a href="#Command-pattern" class="headerlink" title="Command pattern"></a>Command pattern</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Abstract structure of an iptables instruction:</span></span><br><span class="line">iptables [-t table] <span class="built_in">command</span> [match pattern] [action]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><h4 id="Choose-a-table"><a href="#Choose-a-table" class="headerlink" title="Choose a table"></a>Choose a table</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following "chain" represents</span></span><br><span class="line"><span class="comment"># one of the chains PREROUTING, OUTPUT and POSTROUTING</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># add a rule:</span></span><br><span class="line">iptables -t nat -A chain [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list rules:</span></span><br><span class="line">iptables -t nat -L</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove user-defined chain with index 'myindex':</span></span><br><span class="line">iptables -t nat -D chain myindex</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all rules in chain 'chain':</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -F chain</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="Choose-match-patterns"><a href="#Choose-match-patterns" class="headerlink" title="Choose match patterns"></a>Choose match patterns</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># actions to be taken on matched packets</span></span><br><span class="line"><span class="comment"># will be abbreviated by '[...]'.</span></span><br><span class="line"><span class="comment"># Depending on the match pattern the appropriate chain is selected.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># UDP packets to 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p udp -d 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets from 192.168.x.x arriving at eth0:</span></span><br><span class="line">iptables -t nat -A PREROUTING -s 192.168.0.0/16 -i eth0 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets except TCP packets and except packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A PREROUTING -p ! tcp -s ! 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># packets leaving at eth1:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2, port 12345 to 12356</span></span><br><span class="line"><span class="comment"># to 123.123.123.123, Port 22</span></span><br><span class="line"><span class="comment"># (a backslash indicates contination at the next line)</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 \</span><br><span class="line">--sport 12345:12356 -d 123.123.123.123 --dport 22 [...]</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="Specify-your-action-for-matched-packets"><a href="#Specify-your-action-for-matched-packets" class="headerlink" title="Specify your action for matched packets"></a>Specify your action for matched packets</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following the table selection, the command and the match pattern</span></span><br><span class="line"><span class="comment"># will be abbreviated using [...]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source-NAT: Change sender to 123.123.123.123</span></span><br><span class="line">iptables [...] -j SNAT --to-source 123.123.123.123</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mask: Change sender to outgoing network interface</span></span><br><span class="line">iptables [...] -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Destination-NAT: Change receipient to 123.123.123.123, port 22</span></span><br><span class="line">iptables [...] -j DNAT --to-destination 123.123.123.123:22</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redirect to local port 8080</span></span><br><span class="line">iptables [...] -j REDIRECT --to-ports 8080</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
-<li><h4 id="Connect-a-private-subnet-to-the-Internet-using-NAT"><a href="#Connect-a-private-subnet-to-the-Internet-using-NAT" class="headerlink" title="Connect a private subnet to the Internet using NAT"></a>Connect a private subnet to the Internet using NAT</h4>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In case the address is dynamically assigned IP (dialup) connections</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># In case the address is static</span></span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o eth0 -j SNAT --to 10.11.12.13</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="Transparent-Proxy"><a href="#Transparent-Proxy" class="headerlink" title="Transparent Proxy"></a>Transparent Proxy</h4><p>Let us assume that we have a local net connected to the Internet using NAT. To keep the traffic low we would like to run a HTTP-proxy on port 8080 of the local network interface handling all of the http-traffic.</p>
-<p><img src="/images/transparent-proxy-en.gif" alt="transparent proxy"></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transparent proxying:</span></span><br><span class="line"><span class="comment"># (local net at eth0, proxy server at port 8080)</span></span><br><span class="line"><span class="comment"># All incoming packets going to port 80 will be redirected to port 8080</span></span><br><span class="line">iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT \</span><br><span class="line">--to-ports 8080</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://www.karlrupp.net/en/computer/nat_tutorial" target="_blank" rel="noopener">NAT - Network Address Translation</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/06/22/Name-rules-for-linux-network-interface/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="一叶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一叶のBlogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/22/Name-rules-for-linux-network-interface/" itemprop="url">Name-rules-for-linux-network-interface.md</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T10:51:58+08:00">
-                2018-06-22
-              </time>
+              <a href="/2018/10/24/NAT/" rel="next" title="NAT - Network Address Translation">
+                <i class="fa fa-chevron-left"></i> NAT - Network Address Translation
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index">
-                    <span itemprop="name">Netwrok</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自<a href="https://www.freedesktop.org/wiki/" target="_blank" rel="noopener">FreeDesktop</a>的<a href="https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/" target="_blank" rel="noopener">Predictable Network Interface Names</a>， 以下命名规则亦是摘自与此。</p>
-<h3 id="Name-Rules"><a href="#Name-Rules" class="headerlink" title="Name Rules"></a>Name Rules</h3><ol>
-<li>Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1)</li>
-<li>Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1)</li>
-<li>Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0)</li>
-<li>Names incorporating the interfaces’s MAC address (example: enx78e7d1ea46da)</li>
-<li>Classic, unpredictable kernel-native ethX naming (example: eth0)</li>
-</ol>
-<p>By default, systemd v197 will now name interfaces following policy 1) if that information from the firmware is applicable and available, falling back to 2) if that information from the firmware is applicable and available, falling back to 3) if applicable, falling back to 5) in all other cases. Policy 4) is not used by default, but is available if the user chooses so.</p>
-<p>This combined policy is only applied as last resort. That means, if the system has biosdevname installed, it will take precedence. If the user has added udev rules which change the name of the kernel devices these will take precedence too. Also, any distribution specific naming schemes generally take precedence.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -893,164 +542,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/06/07/Tmux基本命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="一叶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一叶のBlogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/07/Tmux基本命令/" itemprop="url">Tmux基本命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-07T10:15:33+08:00">
-                2018-06-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近从terminator切到tmux，第一次使用，把tmux的常用基本命令总结了一下：</p>
-<h3 id="Tmux基本命令的xmind图"><a href="#Tmux基本命令的xmind图" class="headerlink" title="Tmux基本命令的xmind图:"></a>Tmux基本命令的xmind图:</h3><p><img src="/images/tmux_commands.png" alt="tmux命令总结图"></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1058,6 +554,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1078,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1160,6 +669,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Jupyter-lab"><span class="nav-number">1.</span> <span class="nav-text">Install Jupyter lab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-IPython-kernel"><span class="nav-number">2.</span> <span class="nav-text">Install IPython kernel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-Jupyter-Lab-as-a-systemd-service"><span class="nav-number">3.</span> <span class="nav-text">Start Jupyter Lab as a systemd service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Define-Jupyter-configuration"><span class="nav-number">3.1.</span> <span class="nav-text">Define Jupyter configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Define-jupyter-lab-systemd-service"><span class="nav-number">3.2.</span> <span class="nav-text">Define jupyter-lab systemd service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1300,6 +825,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
