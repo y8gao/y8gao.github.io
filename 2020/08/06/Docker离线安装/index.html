@@ -138,18 +138,18 @@
 
 
 
-  <meta name="description" content="在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自FreeDesktop的Predictable Network Interface Names， 以下命名规则亦是摘自与此。 Name Rules Names incorporating Firmware/BIOS provided index numbers for on-board devi">
-<meta name="keywords" content="Linux,Network interface name">
+  <meta name="description" content="最近需要在服务器上安装docker服务，服务器没有联网，所以需要离线安装docker。 接下来根据查到的资料，对安装过程进行简单总结。 环境信息： 目标系统： CentOS7.4 docker version: 19.03  虽然系统跟docker版本有提及，但思路是类似的，所以对ubuntu也可以使用类似思路来做。 安装步骤 在一台能联网的机器上创建一个同样系统版本的虚拟机，或者用相同版本的容器">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Name-rules-for-linux-network-interface.md">
-<meta property="og:url" content="http://y8gao.github.io/2018/06/22/Name-rules-for-linux-network-interface/index.html">
+<meta property="og:title" content="Docker离线安装">
+<meta property="og:url" content="http://y8gao.github.io/2020/08/06/Docker离线安装/index.html">
 <meta property="og:site_name" content="一叶のBlogs">
-<meta property="og:description" content="在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自FreeDesktop的Predictable Network Interface Names， 以下命名规则亦是摘自与此。 Name Rules Names incorporating Firmware/BIOS provided index numbers for on-board devi">
+<meta property="og:description" content="最近需要在服务器上安装docker服务，服务器没有联网，所以需要离线安装docker。 接下来根据查到的资料，对安装过程进行简单总结。 环境信息： 目标系统： CentOS7.4 docker version: 19.03  虽然系统跟docker版本有提及，但思路是类似的，所以对ubuntu也可以使用类似思路来做。 安装步骤 在一台能联网的机器上创建一个同样系统版本的虚拟机，或者用相同版本的容器">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-11T02:41:36.000Z">
+<meta property="og:updated_time" content="2020-08-07T06:25:59.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Name-rules-for-linux-network-interface.md">
-<meta name="twitter:description" content="在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自FreeDesktop的Predictable Network Interface Names， 以下命名规则亦是摘自与此。 Name Rules Names incorporating Firmware/BIOS provided index numbers for on-board devi">
+<meta name="twitter:title" content="Docker离线安装">
+<meta name="twitter:description" content="最近需要在服务器上安装docker服务，服务器没有联网，所以需要离线安装docker。 接下来根据查到的资料，对安装过程进行简单总结。 环境信息： 目标系统： CentOS7.4 docker version: 19.03  虽然系统跟docker版本有提及，但思路是类似的，所以对ubuntu也可以使用类似思路来做。 安装步骤 在一台能联网的机器上创建一个同样系统版本的虚拟机，或者用相同版本的容器">
 
 
 
@@ -157,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="http://y8gao.github.io/2018/06/22/Name-rules-for-linux-network-interface/"/>
+  <link rel="canonical" href="http://y8gao.github.io/2020/08/06/Docker离线安装/"/>
 
 
 
@@ -167,7 +167,7 @@
   };
 </script>
 
-  <title>Name-rules-for-linux-network-interface.md | 一叶のBlogs</title>
+  <title>Docker离线安装 | 一叶のBlogs</title>
   
 
 
@@ -385,7 +385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/06/22/Name-rules-for-linux-network-interface/"/>
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/06/Docker离线安装/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一叶"/>
@@ -403,7 +403,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Name-rules-for-linux-network-interface.md
+          <h1 class="post-title" itemprop="name headline">Docker离线安装
 
               
             
@@ -429,7 +429,7 @@
                 
               
 
-              <time title="Created: 2018-06-22 10:51:58" itemprop="dateCreated datePublished" datetime="2018-06-22T10:51:58+08:00">2018-06-22</time>
+              <time title="Created: 2020-08-06 18:00:02" itemprop="dateCreated datePublished" datetime="2020-08-06T18:00:02+08:00">2020-08-06</time>
             </span>
           
 
@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-11 10:41:36" itemprop="dateModified" datetime="2019-07-11T10:41:36+08:00">2019-07-11</time>
+                <time title="Modified: 2020-08-07 14:25:59" itemprop="dateModified" datetime="2020-08-07T14:25:59+08:00">2020-08-07</time>
               </span>
             
           
@@ -465,7 +465,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Netwrok/" itemprop="url" rel="index"><span itemprop="name">Netwrok</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
 
                 
                 
@@ -483,8 +483,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/06/22/Name-rules-for-linux-network-interface/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/22/Name-rules-for-linux-network-interface/" itemprop="commentCount"></span>
+                <a href="/2020/08/06/Docker离线安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/06/Docker离线安装/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -526,16 +526,36 @@
       
 
       
-        <p>在使用Linux过程中，发现网卡命令存在规则，于是Google之后发现这一改动的来龙去脉，具体可参考来自<a href="https://www.freedesktop.org/wiki/" target="_blank" rel="noopener">FreeDesktop</a>的<a href="https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/" target="_blank" rel="noopener">Predictable Network Interface Names</a>， 以下命名规则亦是摘自与此。</p>
-<h3 id="Name-Rules"><a href="#Name-Rules" class="headerlink" title="Name Rules"></a>Name Rules</h3><ol>
-<li>Names incorporating Firmware/BIOS provided index numbers for on-board devices (example: eno1)</li>
-<li>Names incorporating Firmware/BIOS provided PCI Express hotplug slot index numbers (example: ens1)</li>
-<li>Names incorporating physical/geographical location of the connector of the hardware (example: enp2s0)</li>
-<li>Names incorporating the interfaces’s MAC address (example: enx78e7d1ea46da)</li>
-<li>Classic, unpredictable kernel-native ethX naming (example: eth0)</li>
+        <p>最近需要在服务器上安装docker服务，服务器没有联网，所以需要离线安装docker。</p>
+<p>接下来根据查到的资料，对安装过程进行简单总结。</p>
+<h2 id="环境信息："><a href="#环境信息：" class="headerlink" title="环境信息："></a>环境信息：</h2><ul>
+<li>目标系统： CentOS7.4</li>
+<li>docker version: 19.03</li>
+</ul>
+<p>虽然系统跟docker版本有提及，但思路是类似的，所以对ubuntu也可以使用类似思路来做。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>在一台能联网的机器上创建一个同样系统版本的虚拟机，或者用相同版本的容器。</p>
+<p>注意内核版本的兼容性，比如CentOS7.2的内核版本，3.10.0-327是不支持overlay2的。</p>
+<blockquote>
+<p><a href="https://docs.docker.com/storage/storagedriver/overlayfs-driver/" target="_blank" rel="noopener">https://docs.docker.com/storage/storagedriver/overlayfs-driver/</a></p>
+<p>Note: If you use OverlayFS, use the overlay2 driver rather than the overlay driver, because it is more efficient in terms of inode utilization. <strong>To use the new driver, you need version 4.0 or higher of the Linux kernel, or RHEL or CentOS using version 3.10.0-514 and above</strong>.</p>
+</blockquote>
+</li>
+<li><p>在虚拟机或者容器内下载docker安装包以及依赖包</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download packages for docker</span></span><br><span class="line">yum install --downloadonly --downloaddir=./docker docker </span><br><span class="line"></span><br><span class="line"><span class="comment"># dowload createrepo for creating local repo</span></span><br><span class="line"><span class="comment">## if server contains it, ignore this step.</span></span><br><span class="line">yum install --downloadonly --downloaddir=./docker createrepo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传离线安装包到服务器</p>
+</li>
+<li><p>构建本地yum源<br>此方法是比较graceful的方法，有部分文档使用 rpm 工具强制安装，但此方法使用yum源的方式安装，会解析依赖关系，方便安装时候了解依赖关系，是否有额外删除/降级的软件包，或者未下载的依赖，强烈建议使用此种方法。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. create repo file</span></span><br><span class="line">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/docker.repo</span><br><span class="line">[docker]</span><br><span class="line">name=docker</span><br><span class="line">baseurl=file:///mnt/storage/docker <span class="comment"># 配置本地目录作为源</span></span><br><span class="line">gpgcheck=0                     <span class="comment"># 关闭</span></span><br><span class="line">enabled=1                      <span class="comment"># 使用当前源</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. create repo</span></span><br><span class="line">createrepo -d /mnt/storage/docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. check if exists</span></span><br><span class="line">yum repolist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. clean then recreate cache</span></span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装docker</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install docker by yum</span></span><br><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>By default, systemd v197 will now name interfaces following policy 1) if that information from the firmware is applicable and available, falling back to 2) if that information from the firmware is applicable and available, falling back to 3) if applicable, falling back to 5) in all other cases. Policy 4) is not used by default, but is available if the user chooses so.</p>
-<p>This combined policy is only applied as last resort. That means, if the system has biosdevname installed, it will take precedence. If the user has added udev rules which change the name of the kernel devices these will take precedence too. Also, any distribution specific naming schemes generally take precedence.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://blog.csdn.net/qq_15807167/article/details/80588856" target="_blank" rel="noopener">Docker–离线安装以及本地yum源构建</a></li>
+</ul>
 
       
     </div>
@@ -599,9 +619,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/Network-interface-name/" rel="tag"># Network interface name</a>
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
           
         </div>
       
@@ -614,8 +632,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/07/Tmux基本命令/" rel="next" title="Tmux基本命令">
-                <i class="fa fa-chevron-left"></i> Tmux基本命令
+              <a href="/2020/08/06/Linux磁盘格式化和挂载/" rel="next" title="Linux磁盘格式化和挂载">
+                <i class="fa fa-chevron-left"></i> Linux磁盘格式化和挂载
               </a>
             
           </div>
@@ -623,10 +641,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/24/NAT/" rel="prev" title="NAT - Network Address Translation">
-                NAT - Network Address Translation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -797,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Name-Rules"><span class="nav-number">1.</span> <span class="nav-text">Name Rules</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境信息："><span class="nav-number">1.</span> <span class="nav-text">环境信息：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">2.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
@@ -1007,9 +1021,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://y8gao.github.io/2018/06/22/Name-rules-for-linux-network-interface/";
-    this.page.identifier = "2018/06/22/Name-rules-for-linux-network-interface/";
-    this.page.title = 'Name-rules-for-linux-network-interface.md';
+    this.page.url = "http://y8gao.github.io/2020/08/06/Docker离线安装/";
+    this.page.identifier = "2020/08/06/Docker离线安装/";
+    this.page.title = 'Docker离线安装';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
