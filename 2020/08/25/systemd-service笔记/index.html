@@ -138,17 +138,20 @@
 
 
 
-  <meta name="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://y8gao.github.io/categories/index.html">
+  <meta name="description" content="简单总结一下systemd service的类型和服务类型的选择。  参考链接 https://www.freedesktop.org/software/systemd/man/systemd.service.html http://www.jinbuguo.com/systemd/systemd.service.html https://cloud.tencent.com/developer/a">
+<meta name="keywords" content="systemd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="systemd service笔记">
+<meta property="og:url" content="http://y8gao.github.io/2020/08/25/systemd-service笔记/index.html">
 <meta property="og:site_name" content="一叶のBlogs">
-<meta property="og:description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta property="og:description" content="简单总结一下systemd service的类型和服务类型的选择。  参考链接 https://www.freedesktop.org/software/systemd/man/systemd.service.html http://www.jinbuguo.com/systemd/systemd.service.html https://cloud.tencent.com/developer/a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-23T08:42:50.000Z">
+<meta property="og:image" content="http://y8gao.github.io/images/systemd%20service.png">
+<meta property="og:updated_time" content="2020-08-25T06:42:32.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta name="twitter:title" content="systemd service笔记">
+<meta name="twitter:description" content="简单总结一下systemd service的类型和服务类型的选择。  参考链接 https://www.freedesktop.org/software/systemd/man/systemd.service.html http://www.jinbuguo.com/systemd/systemd.service.html https://cloud.tencent.com/developer/a">
+<meta name="twitter:image" content="http://y8gao.github.io/images/systemd%20service.png">
 
 
 
@@ -156,7 +159,7 @@
 
   
   
-  <link rel="canonical" href="http://y8gao.github.io/categories/"/>
+  <link rel="canonical" href="http://y8gao.github.io/2020/08/25/systemd-service笔记/"/>
 
 
 
@@ -166,7 +169,7 @@
   };
 </script>
 
-  <title>categories | 一叶のBlogs</title>
+  <title>systemd service笔记 | 一叶のBlogs</title>
   
 
 
@@ -295,7 +298,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -364,80 +367,265 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/25/systemd-service笔记/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一叶"/>
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+"/>
+      <meta itemprop="image" content="/images/avatar.jpeg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs"/>
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-              3 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Netwrok/">Netwrok</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Tools/">Tools</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/disk-management/">disk management</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tensorflow/">Tensorflow</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tensorflow/C/">C++</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">systemd service笔记
+
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-08-25 14:39:20 / Modified: 14:42:32" itemprop="dateCreated datePublished" datetime="2020-08-25T14:39:20+08:00">2020-08-25</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2020/08/25/systemd-service笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/25/systemd-service笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon"
+              >
+                <i class="fa fa-eye"></i>
+                 Views:  
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>简单总结一下systemd service的类型和服务类型的选择。</p>
+<p><img src="/images/systemd service.png" alt="systemd service"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html" target="_blank" rel="noopener">https://www.freedesktop.org/software/systemd/man/systemd.service.html</a></li>
+<li><a href="http://www.jinbuguo.com/systemd/systemd.service.html" target="_blank" rel="noopener">http://www.jinbuguo.com/systemd/systemd.service.html</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1516125" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1516125</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/systemd#Service_types" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/systemd#Service_types</a></li>
+</ul>
+
       
     </div>
-    
-
-
 
     
+
+    
+      
+    
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="一叶 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="一叶 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/systemd/" rel="tag"># systemd</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/24/使用Tensorflow-C-API构建应用程序/" rel="next" title="使用Tensorflow C++ API构建应用程序">
+                <i class="fa fa-chevron-left"></i> 使用Tensorflow C++ API构建应用程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -473,8 +661,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -573,6 +770,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -777,9 +991,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://y8gao.github.io/categories/index.html";
-    this.page.identifier = "categories/index.html";
-    this.page.title = 'categories';
+    this.page.url = "http://y8gao.github.io/2020/08/25/systemd-service笔记/";
+    this.page.identifier = "2020/08/25/systemd-service笔记/";
+    this.page.title = 'systemd service笔记';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
