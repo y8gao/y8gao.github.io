@@ -1,23 +1,412 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block content %}
+<link rel="stylesheet" href="/css/main.css">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;y8gao.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
+<meta name="description" content="​        最近工作中有涉及到NAT在Linux中的使用，主要是 iptables 的使用，这里根据参考的文档， 做一些摘录总结。 IntroductionNetwork Address Translation generally involves “re-write the source&#x2F;destination addresses of IP packets as they pass th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAT - Network Address Translation">
+<meta property="og:url" content="http://y8gao.github.io/2018/10/24/NAT/index.html">
+<meta property="og:site_name" content="一叶のBlogs">
+<meta property="og:description" content="​        最近工作中有涉及到NAT在Linux中的使用，主要是 iptables 的使用，这里根据参考的文档， 做一些摘录总结。 IntroductionNetwork Address Translation generally involves “re-write the source&#x2F;destination addresses of IP packets as they pass th">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://y8gao.github.io/images/nat-chains.gif">
+<meta property="og:image" content="http://y8gao.github.io/images/transparent-proxy-en.gif">
+<meta property="article:published_time" content="2018-10-24T13:19:32.000Z">
+<meta property="article:modified_time" content="2018-10-25T01:26:43.000Z">
+<meta property="article:author" content="一叶">
+<meta property="article:tag" content="NAT">
+<meta property="article:tag" content="Network Address Translation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://y8gao.github.io/images/nat-chains.gif">
+
+
+<link rel="canonical" href="http://y8gao.github.io/2018/10/24/NAT/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;y8gao.github.io&#x2F;2018&#x2F;10&#x2F;24&#x2F;NAT&#x2F;&quot;,&quot;path&quot;:&quot;2018&#x2F;10&#x2F;24&#x2F;NAT&#x2F;&quot;,&quot;title&quot;:&quot;NAT - Network Address Translation&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>NAT - Network Address Translation | 一叶のBlogs</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">一叶のBlogs</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-and-Netfilter"><span class="nav-number">2.</span> <span class="nav-text">Linux and Netfilter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT-chains"><span class="nav-number">2.1.</span> <span class="nav-text">NAT chains</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PREROUTING-chain"><span class="nav-number">2.1.1.</span> <span class="nav-text">PREROUTING chain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POSTROUTING-chain"><span class="nav-number">2.1.2.</span> <span class="nav-text">POSTROUTING chain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OUTPUT-chain"><span class="nav-number">2.1.3.</span> <span class="nav-text">OUTPUT chain</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enable-required-features"><span class="nav-number">3.1.</span> <span class="nav-text">Enable required features</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Command-breakdown"><span class="nav-number">3.2.</span> <span class="nav-text">Command breakdown</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Command-pattern"><span class="nav-number">3.2.1.</span> <span class="nav-text">Command pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-a-table"><span class="nav-number">3.2.2.</span> <span class="nav-text">Choose a table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-match-patterns"><span class="nav-number">3.2.3.</span> <span class="nav-text">Choose match patterns</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Specify-your-action-for-matched-packets"><span class="nav-number">3.2.4.</span> <span class="nav-text">Specify your action for matched packets</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">3.3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Connect-a-private-subnet-to-the-Internet-using-NAT"><span class="nav-number">3.3.1.</span> <span class="nav-text">Connect a private subnet to the Internet using NAT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transparent-Proxy"><span class="nav-number">3.3.2.</span> <span class="nav-text">Transparent Proxy</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">一叶</p>
+  <div class="site-description" itemprop="description">To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/10/24/NAT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NAT - Network Address Translation
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-24 21:19:32" itemprop="dateCreated datePublished" datetime="2018-10-24T21:19:32+08:00">2018-10-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2018-10-25 09:26:43" itemprop="dateModified" datetime="2018-10-25T09:26:43+08:00">2018-10-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index"><span itemprop="name">Netwrok</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/24/NAT/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/24/NAT/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>​        最近工作中有涉及到NAT在Linux中的使用，主要是 <code>iptables</code> 的使用，这里根据<a href="#Reference">参考的文档</a>， 做一些摘录总结。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Network Address Translation generally involves “<em>re-write the source/destination addresses of IP packets as they pass through a router or firewall</em>“.</p>
+<h2 id="Linux-and-Netfilter"><a href="#Linux-and-Netfilter" class="headerlink" title="Linux and Netfilter"></a>Linux and Netfilter</h2><p>Linux kernel usually processes a packet filter framework called <strong>netfilter</strong>. This framework enables a Linux machine with an appropriate number of network cards(interfaces) to become a router capable of NAT.</p>
+<p>关于NAT, 在<code>iptables</code>里有三个 predefined chains: <strong>PREROUTING</strong>， <strong>OUTPUT</strong>,  和<strong>POSTROUTING</strong>. 如下图所示：</p>
+<p><img src="/images/nat-chains.gif" alt="nat-chains"></p>
+<p>The chains <strong>PREROUTING</strong> and <strong>POSTROUTING</strong> are the most important ones.</p>
+<h3 id="NAT-chains"><a href="#NAT-chains" class="headerlink" title="NAT chains"></a>NAT chains</h3><h4 id="PREROUTING-chain"><a href="#PREROUTING-chain" class="headerlink" title="PREROUTING chain"></a><code>PREROUTING</code> chain</h4><ul>
+<li>The <strong>PREROUTING</strong> chain is responsible for packets that just arrived at the network interface.<ul>
+<li>In this point, no routing decision has taken place, therefore it is not yet known whether the packet would be interpreted locally or whether it would be forwarded to another machine located at another network interface.</li>
+<li>After the packet has passed the <strong>PREROUTING</strong> chain the routing decision is made.<ul>
+<li>In case that the local machine is the recipient, the packet will be directed to the corresponding process and we do not have to worry about NAT anymore.</li>
+<li>In case that the recipient is located in a (sub-)net located at a different network interface, the packet will be forwarded to that interface, provided that the machine is configured to do so.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="POSTROUTING-chain"><a href="#POSTROUTING-chain" class="headerlink" title="POSTROUTING chain"></a><code>POSTROUTING</code> chain</h4><ul>
+<li>The <strong>POSTROUTING</strong> chain is responsible for packets that just before our forwarded packet leaves the machine.<ul>
+<li>The packet passes the <strong>POSTROUTING</strong> chain and then leaves through the network interface.</li>
+</ul>
+</li>
+</ul>
+<h4 id="OUTPUT-chain"><a href="#OUTPUT-chain" class="headerlink" title="OUTPUT chain"></a><code>OUTPUT</code> chain</h4><ul>
+<li>The <strong>OUTPUT</strong> chain is for locally generated packets.<ul>
+<li>Instead of passing through the <strong>PREROUTING</strong> chain, it passes the <strong>OUTPUT</strong> chain and then moves on to the <strong>POSTROUTING</strong> chain.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul>
+<li><h3 id="Enable-required-features"><a href="#Enable-required-features" class="headerlink" title="Enable required features"></a>Enable required features</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMPORTANT: Activate IP-forwarding in the kernel!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabled by default!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;1&quot;</span> &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="comment"># Or,</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> for both above, it would fall back after system restart.</span></span><br><span class="line"><span class="comment"># To permenantly enable it, uncomment this</span></span><br><span class="line"><span class="comment"># line &quot;# net.ipv4.ip_forward=1&quot; as belowin /etc/sysctl.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load various modules. Usually they are already loaded</span></span><br><span class="line"><span class="comment"># (especially for newer kernels), in that case</span></span><br><span class="line"><span class="comment"># the following commands are not needed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iptables module:</span></span><br><span class="line">modprobe ip_tables</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate connection tracking</span></span><br><span class="line"><span class="comment"># (connection&#x27;s status are taken into account)</span></span><br><span class="line">modprobe ip_conntrack</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for IRC:</span></span><br><span class="line">modprobe ip_conntrack_irc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for FTP:</span></span><br><span class="line">modprobe ip_conntrack_ftp</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="Command-breakdown"><a href="#Command-breakdown" class="headerlink" title="Command breakdown"></a>Command breakdown</h3><ul>
+<li><h4 id="Command-pattern"><a href="#Command-pattern" class="headerlink" title="Command pattern"></a>Command pattern</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Abstract structure of an iptables instruction:</span></span><br><span class="line">iptables [-t table] <span class="built_in">command</span> [match pattern] [action]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><h4 id="Choose-a-table"><a href="#Choose-a-table" class="headerlink" title="Choose a table"></a>Choose a table</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following &quot;chain&quot; represents</span></span><br><span class="line"><span class="comment"># one of the chains PREROUTING, OUTPUT and POSTROUTING</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># add a rule:</span></span><br><span class="line">iptables -t nat -A chain [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list rules:</span></span><br><span class="line">iptables -t nat -L</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove user-defined chain with index &#x27;myindex&#x27;:</span></span><br><span class="line">iptables -t nat -D chain myindex</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all rules in chain &#x27;chain&#x27;:</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -F chain</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Choose-match-patterns"><a href="#Choose-match-patterns" class="headerlink" title="Choose match patterns"></a>Choose match patterns</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># actions to be taken on matched packets</span></span><br><span class="line"><span class="comment"># will be abbreviated by &#x27;[...]&#x27;.</span></span><br><span class="line"><span class="comment"># Depending on the match pattern the appropriate chain is selected.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># UDP packets to 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p udp -d 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets from 192.168.x.x arriving at eth0:</span></span><br><span class="line">iptables -t nat -A PREROUTING -s 192.168.0.0/16 -i eth0 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets except TCP packets and except packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A PREROUTING -p ! tcp -s ! 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># packets leaving at eth1:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2, port 12345 to 12356</span></span><br><span class="line"><span class="comment"># to 123.123.123.123, Port 22</span></span><br><span class="line"><span class="comment"># (a backslash indicates contination at the next line)</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 \</span><br><span class="line">--sport 12345:12356 -d 123.123.123.123 --dport 22 [...]</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Specify-your-action-for-matched-packets"><a href="#Specify-your-action-for-matched-packets" class="headerlink" title="Specify your action for matched packets"></a>Specify your action for matched packets</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following the table selection, the command and the match pattern</span></span><br><span class="line"><span class="comment"># will be abbreviated using [...]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source-NAT: Change sender to 123.123.123.123</span></span><br><span class="line">iptables [...] -j SNAT --to-source 123.123.123.123</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mask: Change sender to outgoing network interface</span></span><br><span class="line">iptables [...] -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Destination-NAT: Change receipient to 123.123.123.123, port 22</span></span><br><span class="line">iptables [...] -j DNAT --to-destination 123.123.123.123:22</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redirect to local port 8080</span></span><br><span class="line">iptables [...] -j REDIRECT --to-ports 8080</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li><h4 id="Connect-a-private-subnet-to-the-Internet-using-NAT"><a href="#Connect-a-private-subnet-to-the-Internet-using-NAT" class="headerlink" title="Connect a private subnet to the Internet using NAT"></a>Connect a private subnet to the Internet using NAT</h4>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In case the address is dynamically assigned IP (dialup) connections</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># In case the address is static</span></span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o eth0 -j SNAT --to 10.11.12.13</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Transparent-Proxy"><a href="#Transparent-Proxy" class="headerlink" title="Transparent Proxy"></a>Transparent Proxy</h4><p>Let us assume that we have a local net connected to the Internet using NAT. To keep the traffic low we would like to run a HTTP-proxy on port 8080 of the local network interface handling all of the http-traffic.</p>
+<p><img src="/images/transparent-proxy-en.gif" alt="transparent proxy"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transparent proxying:</span></span><br><span class="line"><span class="comment"># (local net at eth0, proxy server at port 8080)</span></span><br><span class="line"><span class="comment"># All incoming packets going to port 80 will be redirected to port 8080</span></span><br><span class="line">iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT \</span><br><span class="line">--to-ports 8080</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.karlrupp.net/en/computer/nat_tutorial">NAT - Network Address Translation</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/NAT/" rel="tag"># NAT</a>
+              <a href="/tags/Network-Address-Translation/" rel="tag"># Network Address Translation</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/06/22/Name-rules-for-linux-network-interface/" rel="prev" title="Name-rules-for-linux-network-interface.md">
+                  <i class="fa fa-chevron-left"></i> Name-rules-for-linux-network-interface.md
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/" rel="next" title="Setup Jupyter Lab as systemd service">
+                  Setup Jupyter Lab as systemd service <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  <script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一叶</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script class="next-config" data-name="nprogress" type="application/json">{&quot;enable&quot;:true,&quot;spinner&quot;:true}</script>
+  <script src="/js/third-party/nprogress.js"></script>
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{&quot;enable&quot;:true,&quot;shortname&quot;:&quot;y8gao-github-io&quot;,&quot;count&quot;:true,&quot;i18n&quot;:{&quot;disqus&quot;:&quot;disqus&quot;}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -1,23 +1,1521 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
+<link rel="stylesheet" href="/css/main.css">
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;y8gao.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
+<meta name="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一叶のBlogs">
+<meta property="og:url" content="http://y8gao.github.io/index.html">
+<meta property="og:site_name" content="一叶のBlogs">
+<meta property="og:description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="一叶">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://y8gao.github.io/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:true,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;en&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>一叶のBlogs</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">一叶のBlogs</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">一叶</p>
+  <div class="site-description" itemprop="description">To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2021/04/22/%E4%BB%8EPod%E5%86%85%E9%83%A8%E8%AE%BF%E9%97%AEKubernetes%E7%9A%84API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/22/%E4%BB%8EPod%E5%86%85%E9%83%A8%E8%AE%BF%E9%97%AEKubernetes%E7%9A%84API/" class="post-title-link" itemprop="url">从Pod内部访问Kubernetes的API</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-04-22 16:07:19 / Modified: 16:42:18" itemprop="dateCreated datePublished" datetime="2021-04-22T16:07:19+08:00">2021-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud/" itemprop="url" rel="index"><span itemprop="name">Cloud</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud/kubernetes/" itemprop="url" rel="index"><span itemprop="name">kubernetes</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/22/%E4%BB%8EPod%E5%86%85%E9%83%A8%E8%AE%BF%E9%97%AEKubernetes%E7%9A%84API/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/22/从Pod内部访问Kubernetes的API/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当我们在实现一些运行在Kubernetes上的应用时，有时候会需要访问Kubernetes的API获取一些Resource的信息。所以本文简单记录一下如何从Pod内部访问 Kubernetes 的API。</p>
+<h2 id="鉴权配置"><a href="#鉴权配置" class="headerlink" title="鉴权配置"></a>鉴权配置</h2><p>要从Pod内部访问API server，那么遇到的第一个问题就是API Server的鉴权控制。</p>
+<p>默认情况下，每个创建的Pod，如果没有创建<code>serviceAccount</code>, kubernetes会给每个pod关联一个其所属namespace下的默认账户<code>default</code>。同时会在在容器内部的<code>/var/run/secrets/kubernetes.io/serviceaccount/</code>目录下创建<code>token</code>文件、<code>ca.crt</code>文件以供鉴权使用。</p>
+<p>但如果对API的访问有特殊需求，比如需要跨namespace，这是需要基于实际访问需求定义自己的<code>Role</code>，然后定义<code>RoleBinding</code>绑定到对应的<code>serviceAccount</code>上，这样在Pod创建的时候，kubernetes会将Role中定义的权限赋予到对应的<code>serviceAccount</code>上，具体方法可以参考Kubernetes的<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding">Use RBAC Authorization</a>章节。</p>
+<h2 id="访问K8S-API的方法"><a href="#访问K8S-API的方法" class="headerlink" title="访问K8S API的方法"></a>访问K8S API的方法</h2><ul>
+<li><p>使用官方的Client库</p>
+<ul>
+<li>python: <a target="_blank" rel="noopener" href="https://github.com/kubernetes-client/python/">python client library</a></li>
+<li>golang: <a target="_blank" rel="noopener" href="https://github.com/kubernetes/client-go/">Go client library</a></li>
+</ul>
+</li>
+<li><p>通过REST API访问</p>
+</li>
+<li><p>调用kubectl command的方式</p>
+<ul>
+<li>容器内安装<code>kubectl</code>， copy<code>kubeconfig</code>到容器用户HOME目录下<code>.kube/config</code>。</li>
+<li>然后，调用kubectl command的方式。</li>
+</ul>
+</li>
+<li><p>Pod内起一个容器专门run <code>kubectl proxy</code>，然后应用容器访问这个proxy。</p>
+</li>
+<li><p>通过curl的方式访问。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Point to the internal API server hostname</span></span><br><span class="line">APISERVER=https://kubernetes.default.svc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Path to ServiceAccount token</span></span><br><span class="line">SERVICEACCOUNT=/var/run/secrets/kubernetes.io/serviceaccount</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read this Pod&#x27;s namespace</span></span><br><span class="line">NAMESPACE=$(cat <span class="variable">$&#123;SERVICEACCOUNT&#125;</span>/namespace)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read the ServiceAccount bearer token</span></span><br><span class="line">TOKEN=$(cat <span class="variable">$&#123;SERVICEACCOUNT&#125;</span>/token)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Reference the internal certificate authority (CA)</span></span><br><span class="line">CACERT=<span class="variable">$&#123;SERVICEACCOUNT&#125;</span>/ca.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Explore the API with TOKEN</span></span><br><span class="line">curl --cacert <span class="variable">$&#123;CACERT&#125;</span> --header <span class="string">&quot;Authorization: Bearer <span class="variable">$&#123;TOKEN&#125;</span>&quot;</span> -X GET <span class="variable">$&#123;APISERVER&#125;</span>/api</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上即从Pod内访问Kubernetes的方法，实际情况根据自己的场景可自行选择。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2021/04/22/Kubernetes%E4%B8%AD%E7%9A%84Role%E5%92%8CRoleBinding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/22/Kubernetes%E4%B8%AD%E7%9A%84Role%E5%92%8CRoleBinding/" class="post-title-link" itemprop="url">Kubernetes中的Role和RoleBinding</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-04-22 15:20:30 / Modified: 16:03:35" itemprop="dateCreated datePublished" datetime="2021-04-22T15:20:30+08:00">2021-04-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud/" itemprop="url" rel="index"><span itemprop="name">Cloud</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud/kubernetes/" itemprop="url" rel="index"><span itemprop="name">kubernetes</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/04/22/Kubernetes%E4%B8%AD%E7%9A%84Role%E5%92%8CRoleBinding/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/22/Kubernetes中的Role和RoleBinding/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Role-based access control (RBAC) 是 Kubernetes中一种访问控制的方法。通过给serviceAccount配置不同的Role来决定serviceAccount可以访问哪些resources。</p>
+<h2 id="如何打开RBAC"><a href="#如何打开RBAC" class="headerlink" title="如何打开RBAC"></a>如何打开RBAC</h2><p>要打开RBAC，需要在kubernetes的api server的启动参数，<code>--authorization-mode</code>中指定<code>RBAC</code>选项。比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kube-apiserver --authorization-mode=xxx,RBAC </span><br></pre></td></tr></table></figure>
+<h2 id="RBAC的API-objects"><a href="#RBAC的API-objects" class="headerlink" title="RBAC的API objects"></a>RBAC的API objects</h2><p>RBAC提供了四种k8s objects: <em>Role</em>, <em>ClusterRole</em>, <em>RoleBinding</em> and <em>ClusterRoleBinding</em>.</p>
+<h3 id="Role-amp-ClusterRole"><a href="#Role-amp-ClusterRole" class="headerlink" title="Role &amp; ClusterRole"></a>Role &amp; ClusterRole</h3><p><code>Role</code>和<code>ClusterRole</code> 表示了一组资源访问权限定义，比如我们创建一个Role，具有对<code>pod</code>的<code>get</code>、<code>list</code>权限，我们的定义如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Role</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-role</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">  <span class="attr">resources:</span> [<span class="string">&quot;pods&quot;</span>]</span><br><span class="line">  <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>, <span class="string">&quot;list&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>在上面的定义中，metadata中给Role指定了namespace，这是因为Role总是属于某一个namespace的。而 ClusterRole则是non-namespace的，因此，如果定义类似的ClusterRole，那么定义会看起来像这样:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">pod-clusterrole</span></span><br><span class="line"><span class="attr">rules:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">apiGroups:</span> [<span class="string">&quot;&quot;</span>]</span><br><span class="line">  <span class="attr">resources:</span> [<span class="string">&quot;pods&quot;</span>]</span><br><span class="line">  <span class="attr">verbs:</span> [<span class="string">&quot;get&quot;</span>, <span class="string">&quot;list&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="RoleBinding-amp-ClusterRoleBinding"><a href="#RoleBinding-amp-ClusterRoleBinding" class="headerlink" title="RoleBinding &amp; ClusterRoleBinding"></a>RoleBinding &amp; ClusterRoleBinding</h3><p>顾名思义，这两个objects的作用就是将<code>Role</code>中定义的权限 bind到一个或者一组用户上。</p>
+<p>比如我们创建一个RoleBinding，将<code>foo-role</code> Role定义的权限赋予<code>default</code>namespace的<code>default</code>用户：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">RoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">test-foo</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">foo-role</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br></pre></td></tr></table></figure>
+<p>这里尽管<code>foo-role</code>是一个<code>ClusterRole</code>，但是我们定义的<code>RoleBinding</code>的<code>namespace</code>限制了用户<code>default</code>只能访问<code>default</code>namespace的resources。</p>
+<p>如果希望给一个用户跨namespace的访问权限，那么需要创建的是一个<code>ClusterRoleBinding</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">test-foo</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">foo-role</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br></pre></td></tr></table></figure>
+<p>以上即RBAC的四种Object的定义和使用，通过给不同的user配置不同的rule，我们可以在我们的k8s cluster中实现resource访问的安全需求。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/25/systemd-service%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/25/systemd-service%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">systemd service笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-08-25 14:39:20 / Modified: 14:42:32" itemprop="dateCreated datePublished" datetime="2020-08-25T14:39:20+08:00">2020-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/08/25/systemd-service%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/25/systemd-service笔记/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>简单总结一下systemd service的类型和服务类型的选择。</p>
+<p><img src="/images/systemd service.png" alt="systemd service"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.freedesktop.org/software/systemd/man/systemd.service.html">https://www.freedesktop.org/software/systemd/man/systemd.service.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jinbuguo.com/systemd/systemd.service.html">http://www.jinbuguo.com/systemd/systemd.service.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1516125">https://cloud.tencent.com/developer/article/1516125</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/systemd#Service_types">https://wiki.archlinux.org/index.php/systemd#Service_types</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/24/%E4%BD%BF%E7%94%A8Tensorflow-C-API%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/24/%E4%BD%BF%E7%94%A8Tensorflow-C-API%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">使用Tensorflow C++ API构建应用程序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-08-24 14:42:08 / Modified: 16:04:22" itemprop="dateCreated datePublished" datetime="2020-08-24T14:42:08+08:00">2020-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tensorflow/" itemprop="url" rel="index"><span itemprop="name">Tensorflow</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tensorflow/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/08/24/%E4%BD%BF%E7%94%A8Tensorflow-C-API%E6%9E%84%E5%BB%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/24/使用Tensorflow-C-API构建应用程序/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于程序的性能要求，最近在尝试用<code>C++</code>来调用<code>Tensorflow</code>模型进行预测。网上Google许久，找到了两种使用<code>Tensorflow</code>的C++ API来构建应用程序的方法。</p>
+<ul>
+<li>方法一，程序编译链接时引用外部的<code>Tensorflow</code>的头文件和lib库；</li>
+<li>方法二，将程序作为<code>Tensorflow</code>的一个子project来编译。</li>
+</ul>
+<p>下面对这两种方法简单做一下总结，方便后续查阅。</p>
+<h2 id="方法一，编译时引用外部的Tensorflow的头文件和lib库"><a href="#方法一，编译时引用外部的Tensorflow的头文件和lib库" class="headerlink" title="方法一，编译时引用外部的Tensorflow的头文件和lib库"></a>方法一，编译时引用外部的<code>Tensorflow</code>的头文件和lib库</h2><p>该方法实际上就是编写C++代码引用外部的头文件和lib库的方法。</p>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul>
+<li><p>创建项目目录，<code>tf_test</code></p>
+</li>
+<li><p>在<code>tf_test/3rd-party</code>下，Clone <code>tensorflow</code>代码库。<br>本文使用<code>tensorflow v1.15.3</code> - <code>git switch v1.15.3</code></p>
+</li>
+<li><p>编译<code>tensorflow</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> tensorflow</span><br><span class="line">./configure</span><br><span class="line">bazel build --config=opt //tensorflow:libtensorflow_cc.so</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>tf_test/src</code>下，创建编写C++加载模型和预测代码</p>
+</li>
+<li><p>在<code>tf_test/src</code>下，创建编写<code>makefile</code>文件，链接tensorflow的头文件和Lib库。</p>
+</li>
+</ul>
+<h3 id="样例代码"><a href="#样例代码" class="headerlink" title="样例代码"></a>样例代码</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/y8gao/predictor-tfcpp/tree/master/method1/tf_test">[GitHub] method1/tf_test</a></li>
+</ul>
+<h2 id="方法二，将程序作为Tensorflow的子project来编译"><a href="#方法二，将程序作为Tensorflow的子project来编译" class="headerlink" title="方法二，将程序作为Tensorflow的子project来编译"></a>方法二，将程序作为<code>Tensorflow</code>的子project来编译</h2><p>该方法主要参考<a href="#参考链接">参考链接</a>中第一个链接中的描述，将project放在Tensorflow的子目录<code>tensorflow/cc</code>下。</p>
+<h3 id="具体步骤-1"><a href="#具体步骤-1" class="headerlink" title="具体步骤"></a>具体步骤</h3><ul>
+<li><p>Clone <code>tensorflow</code>代码库。<br>本文使用<code>tensorflow v1.15.3</code> - <code>git switch v1.15.3</code></p>
+</li>
+<li><p>在<code>tensorflow/tensorflow/cc</code>下创建project目录，<code>tftest</code></p>
+</li>
+<li><p>在<code>tftest</code>下，创建编写C++加载模型和预测代码</p>
+</li>
+<li><p>在<code>tftest</code>下，创建编写<code>bazel</code>的构建文件<code>BUILD</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">load(&quot;&#x2F;&#x2F;tensorflow:tensorflow.bzl&quot;, &quot;tf_cc_binary&quot;)</span><br><span class="line"></span><br><span class="line">tf_cc_binary(</span><br><span class="line">    name &#x3D; &quot;tftest&quot;,</span><br><span class="line">    srcs &#x3D; [&quot;predict.cpp&quot;],</span><br><span class="line">    deps &#x3D; [</span><br><span class="line">        &quot;&#x2F;&#x2F;tensorflow&#x2F;cc:cc_ops&quot;,</span><br><span class="line">        &quot;&#x2F;&#x2F;tensorflow&#x2F;cc:client_session&quot;,</span><br><span class="line">        &quot;&#x2F;&#x2F;tensorflow&#x2F;core:tensorflow&quot;,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译生成目标文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel run -c opt //tensorflow/cc/tftest:tftest</span><br></pre></td></tr></table></figure>
+<p>最终生成的可执行文件， <code>bazel-bin/tensorflow/cc/tftest/tftest</code>。</p>
+</li>
+<li><p>执行可执行文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bazel-bin/tensorflow/cc/tftest/tftest  ./tensorflow/cc/tftest/model.pb</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="样例代码-1"><a href="#样例代码-1" class="headerlink" title="样例代码"></a>样例代码</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/y8gao/predictor-tfcpp/tree/master/method2/tftest">[GitHub] method2/tftest</a></li>
+</ul>
+<h2 id="Keras模型到Tensorflow模型的转换"><a href="#Keras模型到Tensorflow模型的转换" class="headerlink" title="Keras模型到Tensorflow模型的转换"></a>Keras模型到Tensorflow模型的转换</h2><p>最后，会简单描述一下<code>Keras</code>模型到Tensorflow模型的转换方法，因为通常，我们使用的是<code>keras</code>生成的<code>h5</code>的模型， 因此，在使用<code>Tensorflow</code>加载模型之前，我们需要对模型进行转换，从<code>h5</code>格式到<code>pb</code>的转换。</p>
+<p>转换方法使用的是 <a target="_blank" rel="noopener" href="https://github.com/amir-abdi/keras_to_tensorflow">[GitHub]amir-abdi/keras_to_tensorflow</a>， 我这边单独fork一个当前使用的版本：<a target="_blank" rel="noopener" href="https://github.com/y8gao/keras_to_tensorflow">[GitHub] y8gao/keras_to_tensorflow</a>。</p>
+<p>使用之前需要安装python的运行环境， 本文测试环境如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- Python 3.7.7</span><br><span class="line">- tensorflow 2.2.0</span><br><span class="line">- keras 2.2.4</span><br></pre></td></tr></table></figure>
+<p>执行方法：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python keras_to_tensorflow.py --input_model=./model.h5 --output_model=./model.pb</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<code>tensorflow</code>的C++ API在预测时需要指定 input layer和output layer的name，所以如果不确定output layer的name时，在转换时可以指定 <code>--output_nodes_prefix</code>选项，或者搜索Log中包含<code>Converted output node names are:</code>，会有输出Output Layer的name。</p>
+</blockquote>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://tensorflow.juejin.im/api_guides/cc/guide.html">https://tensorflow.juejin.im/api_guides/cc/guide.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://jacobgil.github.io/deeplearning/tensorflow-cpp">https://jacobgil.github.io/deeplearning/tensorflow-cpp</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/06/Docker%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/06/Docker%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Docker离线安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-06 18:00:02" itemprop="dateCreated datePublished" datetime="2020-08-06T18:00:02+08:00">2020-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-08-07 14:25:59" itemprop="dateModified" datetime="2020-08-07T14:25:59+08:00">2020-08-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/08/06/Docker%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/06/Docker离线安装/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近需要在服务器上安装docker服务，服务器没有联网，所以需要离线安装docker。</p>
+<p>接下来根据查到的资料，对安装过程进行简单总结。</p>
+<h2 id="环境信息："><a href="#环境信息：" class="headerlink" title="环境信息："></a>环境信息：</h2><ul>
+<li>目标系统： CentOS7.4</li>
+<li>docker version: 19.03</li>
+</ul>
+<p>虽然系统跟docker版本有提及，但思路是类似的，所以对ubuntu也可以使用类似思路来做。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>在一台能联网的机器上创建一个同样系统版本的虚拟机，或者用相同版本的容器。</p>
+<p>注意内核版本的兼容性，比如CentOS7.2的内核版本，3.10.0-327是不支持overlay2的。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/overlayfs-driver/">https://docs.docker.com/storage/storagedriver/overlayfs-driver/</a></p>
+<p>Note: If you use OverlayFS, use the overlay2 driver rather than the overlay driver, because it is more efficient in terms of inode utilization. <strong>To use the new driver, you need version 4.0 or higher of the Linux kernel, or RHEL or CentOS using version 3.10.0-514 and above</strong>.</p>
+</blockquote>
+</li>
+<li><p>在虚拟机或者容器内下载docker安装包以及依赖包</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download packages for docker</span></span><br><span class="line">yum install --downloadonly --downloaddir=./docker docker </span><br><span class="line"></span><br><span class="line"><span class="comment"># dowload createrepo for creating local repo</span></span><br><span class="line"><span class="comment">## if server contains it, ignore this step.</span></span><br><span class="line">yum install --downloadonly --downloaddir=./docker createrepo </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传离线安装包到服务器</p>
+</li>
+<li><p>构建本地yum源<br>此方法是比较graceful的方法，有部分文档使用 rpm 工具强制安装，但此方法使用yum源的方式安装，会解析依赖关系，方便安装时候了解依赖关系，是否有额外删除/降级的软件包，或者未下载的依赖，强烈建议使用此种方法。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. create repo file</span></span><br><span class="line">cat &lt;&lt;<span class="string">EOF &gt; /etc/yum.repos.d/docker.repo</span></span><br><span class="line"><span class="string">[docker]</span></span><br><span class="line"><span class="string">name=docker</span></span><br><span class="line"><span class="string">baseurl=file:///mnt/storage/docker # 配置本地目录作为源</span></span><br><span class="line"><span class="string">gpgcheck=0                     # 关闭</span></span><br><span class="line"><span class="string">enabled=1                      # 使用当前源</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. create repo</span></span><br><span class="line">createrepo -d /mnt/storage/docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. check if exists</span></span><br><span class="line">yum repolist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. clean then recreate cache</span></span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装docker</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install docker by yum</span></span><br><span class="line">yum install docker</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15807167/article/details/80588856">Docker–离线安装以及本地yum源构建</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2020/08/06/Linux%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E6%8C%82%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/06/Linux%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E6%8C%82%E8%BD%BD/" class="post-title-link" itemprop="url">Linux磁盘格式化和挂载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-08-06 10:39:28 / Modified: 13:04:39" itemprop="dateCreated datePublished" datetime="2020-08-06T10:39:28+08:00">2020-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/disk-management/" itemprop="url" rel="index"><span itemprop="name">disk management</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/08/06/Linux%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E6%8C%82%E8%BD%BD/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/08/06/Linux磁盘格式化和挂载/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近对Linux服务器上新添加磁盘进行分区挂载，之前磁盘通常是1T，所以用<code>fdisk</code>并未遇到什么问题。最近要挂载一个6T的磁盘，发现<code>fdisk</code>最大只能创建2T的分区，Google之后发现原来<code>fdisk</code>只支持MBR分区表，而MBR最大支持2T的分区，所以要创建大于2T的分区，需要使用GPT，和新的工具，<code>parted</code>。</p>
+<p>下面对两个工具分区时常用命令进行简单总结：</p>
+<ul>
+<li><p><code>fdisk</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root or sudo</span></span><br><span class="line">fdisk /dev/sdb</span><br><span class="line"><span class="comment"># enter interactive console</span></span><br><span class="line">m 		<span class="comment"># for help</span></span><br><span class="line">n 		<span class="comment"># add a new partition</span></span><br><span class="line">p/e 	<span class="comment"># parmiry/extened partition</span></span><br><span class="line">1 		<span class="comment"># partition number</span></span><br><span class="line"><span class="comment"># Return</span></span><br><span class="line">p 		<span class="comment"># print the partition table </span></span><br><span class="line">w 		<span class="comment"># write table to disk and exit</span></span><br><span class="line">q 		<span class="comment"># quit without saving changes</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>parted</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># root or sudo</span></span><br><span class="line">parted /dev/sdc</span><br><span class="line">mklabel gpt  				<span class="comment"># use gpt</span></span><br><span class="line">unit TB						<span class="comment"># set unit</span></span><br><span class="line">mkpart logical ext4 0 6		<span class="comment"># create logical partition with type ext4</span></span><br><span class="line"><span class="built_in">print</span>						<span class="comment"># print partition table</span></span><br><span class="line">quit 						<span class="comment"># quit console</span></span><br><span class="line">mkfs.ext4 /dev/sdc1			<span class="comment"># format in ext4</span></span><br><span class="line">mount /dev/sdc1 /mnt/sdc1   <span class="comment"># mount manually</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分区完毕之后，<code>blkid</code>查看分区的UUID，然后可以在<code>/etc/fstab</code>中添加记录，系统启动自动挂载。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2019/11/09/IFB-in-Traffic-Control/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/11/09/IFB-in-Traffic-Control/" class="post-title-link" itemprop="url">IFB in Traffic Control</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2019-11-09 22:40:09 / Modified: 23:23:49" itemprop="dateCreated datePublished" datetime="2019-11-09T22:40:09+08:00">2019-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index"><span itemprop="name">Netwrok</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/11/09/IFB-in-Traffic-Control/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/09/IFB-in-Traffic-Control/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近项目中用到了Linux下的流量控制，即 <code>tc</code> 命令。由于系统环境的变化需要对ingress的流量进行控制。这里将使用过程中学到的内容作以总结。</p>
+<p>流量控制是Linux内核提供的流量限速、整形和策略控制机智。当前使用的是<code>htb(Hierarchy Token Bucket)</code>的方式对流量进行分层控制：</p>
+<p><img src="/images/tc1.jpeg" alt="tc1"></p>
+<p><code>htb</code>由<code>qdisc</code>、<code>class</code>、<code>filter</code>三部分组成：</p>
+<ul>
+<li><code>qdisc</code> 通过队列讲数据包缓存起来，用来控制网络收发的速度</li>
+<li><code>class</code>用来表示控制策略</li>
+<li><code>filter</code>用来将数据包划分到各个不同的<code>class</code>中</li>
+</ul>
+<p>由于<code>htb</code>跟<code>cbq</code>一样都是对outbound的带宽进行控制，所以如果要对ingress的流量进行控制，就使用到了<a target="_blank" rel="noopener" href="https://wiki.linuxfoundation.org/networking/ifb"><code>ifb(intermediate functional block)</code></a>。因为ingress的流量是无法直接控制，那么就用到<code>ifb</code>作为中间设备对数据包进行<code>tc</code>控制。数据包在经过<code>ifb</code>之后仍被redirect到之前的网卡进行处理。同样的对于egress的数据包，被重定向到<code>ifb</code>之后，也要被redirect到之前的网卡再发送出去， 具体如下图所示：</p>
+<p><img src="/images/ifb.jpeg" alt="ifb"></p>
+<p>以上就是对<code>ifb</code>的描述。</p>
+<p>下面是创建<code>ifb</code>的命令。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe ifb numifbs=1</span><br><span class="line">sudo ip link <span class="built_in">set</span> ifb0 up</span><br><span class="line"></span><br><span class="line">sudo tc qdisc add dev ens255f1 ingress handle ffff:</span><br><span class="line">sudo tc filter add dev ens255f1 parent ffff: protocol all u32 match u32 0 0 action mirred egress redirect dev ifb0</span><br></pre></td></tr></table></figure>
+<p>更加深入细节的描述，可以参考下面的[Reference][#Reference]。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://tonydeng.github.io/sdn-handbook/linux/tc.html#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6">流量控制</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tldp.org/HOWTO/Traffic-Control-HOWTO/">Traffic Control HOWTO</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2019/09/18/Copy-In-Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/18/Copy-In-Python/" class="post-title-link" itemprop="url">Copy In Python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2019-09-18 10:07:23 / Modified: 10:12:44" itemprop="dateCreated datePublished" datetime="2019-09-18T10:07:23+08:00">2019-09-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/09/18/Copy-In-Python/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/18/Copy-In-Python/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>In Python, Assignment statements do not copy objects, they create bindings between a target and an object. When we use = operator user thinks that this creates a new object; well, it doesn’t. It only creates a new variable that shares the reference of the original object.</p>
+<p>For example:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=[&#123;<span class="number">1</span>:[<span class="number">2</span>,<span class="number">3</span>]&#125;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eq_b=a</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(a)</span><br></pre></td></tr></table></figure>
+<pre><code>139958522688072
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(eq_b)</span><br></pre></td></tr></table></figure>
+<pre><code>139958522688072
+</code></pre><p>A copy is sometimes needed so one can change one copy without changing the other. In Python, there are two ways to create copies :</p>
+<ul>
+<li>Deep copy</li>
+<li>Shallow copy</li>
+</ul>
+<h2 id="Shallow-Copy"><a href="#Shallow-Copy" class="headerlink" title="Shallow Copy"></a>Shallow Copy</h2><p>A shallow copy means constructing a new collection object and then populating it with references to the child objects found in the original. <strong>The copying process does not recurse</strong> and therefore won’t create copies of the child objects themselves. In case of shallow copy, <strong>a reference of object is copied in other object</strong>. It means that any changes made to a copy of object do reflect in the original object. </p>
+<p><img src="/images/shallow-copy.jpg" alt="Shallow Copy" title="Shallow Copy"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span>(<span class="built_in">list</span>.copy)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on method_descriptor:
+
+copy(self, /)
+    Return a shallow copy of the list.
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(a)</span><br></pre></td></tr></table></figure>
+<pre><code>139958522688072
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_b=a.copy()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(a)</span><br></pre></td></tr></table></figure>
+<pre><code>139958522688072
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(sc_b)</span><br></pre></td></tr></table></figure>
+<pre><code>139958426162376
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_b[<span class="number">0</span>][<span class="number">1</span>][<span class="number">0</span>] = <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[&#123;1: [7, 3]&#125;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc_b</span><br></pre></td></tr></table></figure>
+<pre><code>[&#123;1: [7, 3]&#125;]
+</code></pre><h2 id="Deep-Copy"><a href="#Deep-Copy" class="headerlink" title="Deep Copy"></a>Deep Copy</h2><p>Deep copy is a process in which <strong>the copying process occurs recursively</strong>. It means first constructing a new collection object and then recursively populating it with copies of the child objects found in the original. In case of deep copy, a copy of object is copied in other object. It means that any changes made to a copy of object do not reflect in the original object.</p>
+<p><img src="/images/deep-copy.jpg" alt="Deep Copy" title="Deep Copy"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">dc_b = copy.deepcopy(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(a)</span><br></pre></td></tr></table></figure>
+<pre><code>139958522688072
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">id</span>(dc_b)</span><br></pre></td></tr></table></figure>
+<pre><code>139958426276936
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc_b[<span class="number">0</span>][<span class="number">1</span>][<span class="number">0</span>] = <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre><code>[&#123;1: [7, 3]&#125;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dc_b</span><br></pre></td></tr></table></figure>
+<pre><code>[&#123;1: [9, 3]&#125;]
+</code></pre><h2 id="Important-Points"><a href="#Important-Points" class="headerlink" title="Important Points:"></a>Important Points:</h2><p>The difference between shallow and deep copying is <strong>only relevant for compound objects (objects that contain other objects, like lists or class instances)</strong>:</p>
+<ul>
+<li>A shallow copy constructs a new compound object and then (to the extent possible) inserts references into it to the objects found in the original.</li>
+<li>A deep copy constructs a new compound object and then, recursively, inserts copies into it of the objects found in the original.</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/copy-python-deep-copy-shallow-copy/">https://www.geeksforgeeks.org/copy-python-deep-copy-shallow-copy/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/" class="post-title-link" itemprop="url">Setup Jupyter Lab as systemd service</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-10 20:48:47" itemprop="dateCreated datePublished" datetime="2019-07-10T20:48:47+08:00">2019-07-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2019-07-11 13:50:40" itemprop="dateModified" datetime="2019-07-11T13:50:40+08:00">2019-07-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/07/10/Setup-Jupyter-Lab-as-systemd-service/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/10/Setup-Jupyter-Lab-as-systemd-service/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Jupyter Lab is a web-based user interface to help you work better with python virtual environment, jupyter notebook, and even, documents.</p>
+<p>My environment is conda environment on Ubuntu18.04, but systemd service file for CentOS  also would be shown. Now here we go!</p>
+<h3 id="Install-Jupyter-lab"><a href="#Install-Jupyter-lab" class="headerlink" title="Install Jupyter lab"></a>Install Jupyter lab</h3><p>In my environment, I install the jupyter, jupyter-lab in conda’s <code>base</code> environment.</p>
+<p>The command is like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install jupyter package in base environment</span></span><br><span class="line">conda install -n base jupyter</span><br><span class="line"></span><br><span class="line"><span class="comment"># By default, jupyter-lab is not in jupyter package, so you have to install it like this:</span></span><br><span class="line">conda install -n base -c conda-forge jupyterlab</span><br></pre></td></tr></table></figure>
+<p>Now run  it directly to check if installation is successful.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Activate your virtual environment</span></span><br><span class="line">conda activate base</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start jupyter lab</span></span><br><span class="line">jupyter lab</span><br></pre></td></tr></table></figure>
+<p>By default, one web page will be opened directly.</p>
+<h3 id="Install-IPython-kernel"><a href="#Install-IPython-kernel" class="headerlink" title="Install IPython kernel"></a>Install IPython kernel</h3><p>The IPython kernel, <code>ipykernel</code>, is the Python execution backend for Jupyter.</p>
+<p>If you want to use a kernel with a different version of Python, or in a virtualenv or conda environment, you’ll need to install that manually.</p>
+<p>For example, in your conda environment, install it like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Activate your virtual environment, here mine is &#x27;tensorflow&#x27;</span></span><br><span class="line">conda activate tensorflow</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install ipykernel like this</span></span><br><span class="line"><span class="comment">##  python -m ipykernel install --user --name myenv --display-name &quot;Py (myenv)&quot;</span></span><br><span class="line">python -m ipykernel install --user --name tensorflow --display-name <span class="string">&quot;Py (tensorflow)&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Also to help create kernel easily, add these to your <code>.bashrc</code>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">__ipykernel_create</span></span> () &#123;</span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$#</span> != 1 ]; <span class="keyword">then</span></span><br><span class="line">  	<span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> &lt;venv&gt;&quot;</span></span><br><span class="line">  	<span class="built_in">return</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  venv=<span class="variable">$1</span></span><br><span class="line">	python -m ipykernel install --user --name <span class="variable">$&#123;venv&#125;</span> --display-name <span class="string">&quot;Py (<span class="variable">$&#123;venv&#125;</span>)&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ipykernel_create=<span class="string">&#x27;__ipykernel_create&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Reactivate your bash, then you can install the kernel like this</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Activate your virtual environment, here mine is &#x27;tensorflow&#x27;</span></span><br><span class="line">conda activate tensorflow</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install ipykernel like this</span></span><br><span class="line">ipykernel_create tensorflow</span><br></pre></td></tr></table></figure>
+<p>Till now, you could run JupyterLab with your expected virtual environment.</p>
+<h3 id="Start-Jupyter-Lab-as-a-systemd-service"><a href="#Start-Jupyter-Lab-as-a-systemd-service" class="headerlink" title="Start Jupyter Lab as a systemd service"></a>Start Jupyter Lab as a systemd service</h3><p>To run jupyter-lab as a service, we need to define its configuration first, and then add its service to systemd.</p>
+<h4 id="Define-Jupyter-configuration"><a href="#Define-Jupyter-configuration" class="headerlink" title="Define Jupyter configuration"></a>Define Jupyter configuration</h4><p>To generate the configuration, do like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<p>Then one configuration file, <code>jupyter_notebook_config.py</code>, is generated under the folder <code>~/.jupyter/</code>.</p>
+<p>Then customize it as required.</p>
+<ul>
+<li><p>Define the directory to use for notebook and kernels</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.notebook_dir=<span class="string">&#x27;&lt;path to use&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IP and Port</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define the IP address jupyter-lab listen on, by default, it is localhost</span></span><br><span class="line">c.NotebookApp.ip = <span class="string">&#x27;localhost&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the port jupyter-lab listen on, default is 8888</span></span><br><span class="line"><span class="comment"># It is better to define your fixed port</span></span><br><span class="line">c.NotebookApp.port = <span class="number">8888</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Do not open browser if starting in background</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Do not open browser when starting up</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>Disable token authentication if starting in background and listening on <code>localhost</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># By default, c.NotebookApp.token=&#x27;&lt;generated&gt;&#x27;</span></span><br><span class="line">c.NotebookApp.token=<span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>If you are setting it up  on remote server, it is better to set its password, and to use SSL for encrypted communication.</p>
+<ul>
+<li><p>Password Setup</p>
+<p>To set your password, do like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook password</span><br></pre></td></tr></table></figure>
+<p>After done, one file, <code>~/.jupyter/jupyter_notebook_config.json</code> would be created, and your hashed password is stored in it. Then copy it to your configuration file <code>jupyter_notebook_config.py</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.password = <span class="string">&#x27;&lt;paste your hashed password here, like: sha1:bcd239...&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Using SSL for encrypted communication</p>
+<p>To create the certificates, do like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create your directory to save your key/cert file</span></span><br><span class="line">mkdir ~/.jupyter/certs</span><br><span class="line"><span class="built_in">cd</span> ~/.jupyter/certs</span><br><span class="line"><span class="comment"># Create certificates</span></span><br><span class="line">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.key -out mycert.pem</span><br></pre></td></tr></table></figure>
+<p>Then add them in your jupyter configuration.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.keyfile = <span class="string">&#x27;~/.jupyter/certs/mycert.key&#x27;</span></span><br><span class="line">c.NotebookApp.certfile = <span class="string">&#x27;~/.jupyter/certs/mycert.pem&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Remote access the jupyter-lab server</p>
+<ul>
+<li><p>Option 1: use SSH Port Forwarding to access the remote server via <code>localhost</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -N -f -L 8888:localhost:8888 user@domain.com </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Option 2: Define public IP jupyter-lab server listen on</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip = <span class="string">&#x27;0.0.0.0&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here, you may run <code>jupyter lab</code> to check if your configuration is as your expected.</p>
+<h4 id="Define-jupyter-lab-systemd-service"><a href="#Define-jupyter-lab-systemd-service" class="headerlink" title="Define jupyter-lab systemd service"></a>Define jupyter-lab systemd service</h4><p>Here I define the systemd service, the service file ,  <code>jupyter-lab.service</code> , is put in directory <code>/usr/lib/systemd/system/</code>, here is one sample:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;Jupyter Lab</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User&#x3D;&lt;user&gt;</span><br><span class="line">Group&#x3D;&lt;group&gt;</span><br><span class="line">Type&#x3D;simple</span><br><span class="line">WorkingDirectory&#x3D;&#x2F;home&#x2F;&lt;user&gt;</span><br><span class="line">ExecStart&#x3D;&#x2F;home&#x2F;&lt;user&gt;&#x2F;miniconda3&#x2F;bin&#x2F;jupyter lab </span><br><span class="line">Restart&#x3D;always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;default.target</span><br></pre></td></tr></table></figure>
+<p>Now try to start the service and check the service status:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start the services</span></span><br><span class="line">systemctl start jupyter-lab.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check the service status</span></span><br><span class="line">systemctl status jupyter-lab.service</span><br><span class="line"></span><br><span class="line"><span class="comment">## If any issues, check the logs</span></span><br><span class="line">journalctl -xe</span><br></pre></td></tr></table></figure>
+<p>After it is ready, enable the service, like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> jupyter-lab.service</span><br></pre></td></tr></table></figure>
+<p>Finally, lists are some links while setting jupyter-lab up.</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html">Install Jupyter Lab</a></li>
+<li><a target="_blank" rel="noopener" href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">Install IPython kernel</a></li>
+<li><a target="_blank" rel="noopener" href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html">Running a notebook server</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://y8gao.github.io/2018/10/24/NAT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="一叶">
+      <meta itemprop="description" content="To see a World in a Grain of Sand And a Heaven in a Wild Flower Hold Infinity in the palm of your hand And Eternity in an hour
+">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一叶のBlogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/24/NAT/" class="post-title-link" itemprop="url">NAT - Network Address Translation</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-24 21:19:32" itemprop="dateCreated datePublished" datetime="2018-10-24T21:19:32+08:00">2018-10-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2018-10-25 09:26:43" itemprop="dateModified" datetime="2018-10-25T09:26:43+08:00">2018-10-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/Netwrok/" itemprop="url" rel="index"><span itemprop="name">Netwrok</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/24/NAT/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/24/NAT/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>​        最近工作中有涉及到NAT在Linux中的使用，主要是 <code>iptables</code> 的使用，这里根据<a href="#Reference">参考的文档</a>， 做一些摘录总结。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Network Address Translation generally involves “<em>re-write the source/destination addresses of IP packets as they pass through a router or firewall</em>“.</p>
+<h2 id="Linux-and-Netfilter"><a href="#Linux-and-Netfilter" class="headerlink" title="Linux and Netfilter"></a>Linux and Netfilter</h2><p>Linux kernel usually processes a packet filter framework called <strong>netfilter</strong>. This framework enables a Linux machine with an appropriate number of network cards(interfaces) to become a router capable of NAT.</p>
+<p>关于NAT, 在<code>iptables</code>里有三个 predefined chains: <strong>PREROUTING</strong>， <strong>OUTPUT</strong>,  和<strong>POSTROUTING</strong>. 如下图所示：</p>
+<p><img src="/images/nat-chains.gif" alt="nat-chains"></p>
+<p>The chains <strong>PREROUTING</strong> and <strong>POSTROUTING</strong> are the most important ones.</p>
+<h3 id="NAT-chains"><a href="#NAT-chains" class="headerlink" title="NAT chains"></a>NAT chains</h3><h4 id="PREROUTING-chain"><a href="#PREROUTING-chain" class="headerlink" title="PREROUTING chain"></a><code>PREROUTING</code> chain</h4><ul>
+<li>The <strong>PREROUTING</strong> chain is responsible for packets that just arrived at the network interface.<ul>
+<li>In this point, no routing decision has taken place, therefore it is not yet known whether the packet would be interpreted locally or whether it would be forwarded to another machine located at another network interface.</li>
+<li>After the packet has passed the <strong>PREROUTING</strong> chain the routing decision is made.<ul>
+<li>In case that the local machine is the recipient, the packet will be directed to the corresponding process and we do not have to worry about NAT anymore.</li>
+<li>In case that the recipient is located in a (sub-)net located at a different network interface, the packet will be forwarded to that interface, provided that the machine is configured to do so.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="POSTROUTING-chain"><a href="#POSTROUTING-chain" class="headerlink" title="POSTROUTING chain"></a><code>POSTROUTING</code> chain</h4><ul>
+<li>The <strong>POSTROUTING</strong> chain is responsible for packets that just before our forwarded packet leaves the machine.<ul>
+<li>The packet passes the <strong>POSTROUTING</strong> chain and then leaves through the network interface.</li>
+</ul>
+</li>
+</ul>
+<h4 id="OUTPUT-chain"><a href="#OUTPUT-chain" class="headerlink" title="OUTPUT chain"></a><code>OUTPUT</code> chain</h4><ul>
+<li>The <strong>OUTPUT</strong> chain is for locally generated packets.<ul>
+<li>Instead of passing through the <strong>PREROUTING</strong> chain, it passes the <strong>OUTPUT</strong> chain and then moves on to the <strong>POSTROUTING</strong> chain.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul>
+<li><h3 id="Enable-required-features"><a href="#Enable-required-features" class="headerlink" title="Enable required features"></a>Enable required features</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMPORTANT: Activate IP-forwarding in the kernel!</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabled by default!</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;1&quot;</span> &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line"><span class="comment"># Or,</span></span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> for both above, it would fall back after system restart.</span></span><br><span class="line"><span class="comment"># To permenantly enable it, uncomment this</span></span><br><span class="line"><span class="comment"># line &quot;# net.ipv4.ip_forward=1&quot; as belowin /etc/sysctl.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load various modules. Usually they are already loaded</span></span><br><span class="line"><span class="comment"># (especially for newer kernels), in that case</span></span><br><span class="line"><span class="comment"># the following commands are not needed.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Load iptables module:</span></span><br><span class="line">modprobe ip_tables</span><br><span class="line"></span><br><span class="line"><span class="comment"># activate connection tracking</span></span><br><span class="line"><span class="comment"># (connection&#x27;s status are taken into account)</span></span><br><span class="line">modprobe ip_conntrack</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for IRC:</span></span><br><span class="line">modprobe ip_conntrack_irc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Special features for FTP:</span></span><br><span class="line">modprobe ip_conntrack_ftp</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="Command-breakdown"><a href="#Command-breakdown" class="headerlink" title="Command breakdown"></a>Command breakdown</h3><ul>
+<li><h4 id="Command-pattern"><a href="#Command-pattern" class="headerlink" title="Command pattern"></a>Command pattern</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Abstract structure of an iptables instruction:</span></span><br><span class="line">iptables [-t table] <span class="built_in">command</span> [match pattern] [action]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><h4 id="Choose-a-table"><a href="#Choose-a-table" class="headerlink" title="Choose a table"></a>Choose a table</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following &quot;chain&quot; represents</span></span><br><span class="line"><span class="comment"># one of the chains PREROUTING, OUTPUT and POSTROUTING</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># add a rule:</span></span><br><span class="line">iptables -t nat -A chain [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list rules:</span></span><br><span class="line">iptables -t nat -L</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove user-defined chain with index &#x27;myindex&#x27;:</span></span><br><span class="line">iptables -t nat -D chain myindex</span><br><span class="line"></span><br><span class="line"><span class="comment"># Remove all rules in chain &#x27;chain&#x27;:</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -F chain</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Choose-match-patterns"><a href="#Choose-match-patterns" class="headerlink" title="Choose match patterns"></a>Choose match patterns</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># actions to be taken on matched packets</span></span><br><span class="line"><span class="comment"># will be abbreviated by &#x27;[...]&#x27;.</span></span><br><span class="line"><span class="comment"># Depending on the match pattern the appropriate chain is selected.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># UDP packets to 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p udp -d 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets from 192.168.x.x arriving at eth0:</span></span><br><span class="line">iptables -t nat -A PREROUTING -s 192.168.0.0/16 -i eth0 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># all packets except TCP packets and except packets from 192.168.1.2:</span></span><br><span class="line">iptables -t nat -A PREROUTING -p ! tcp -s ! 192.168.1.2 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># packets leaving at eth1:</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 [...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># TCP packets from 192.168.1.2, port 12345 to 12356</span></span><br><span class="line"><span class="comment"># to 123.123.123.123, Port 22</span></span><br><span class="line"><span class="comment"># (a backslash indicates contination at the next line)</span></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s 192.168.1.2 \</span><br><span class="line">--sport 12345:12356 -d 123.123.123.123 --dport 22 [...]</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Specify-your-action-for-matched-packets"><a href="#Specify-your-action-for-matched-packets" class="headerlink" title="Specify your action for matched packets"></a>Specify your action for matched packets</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In the following the table selection, the command and the match pattern</span></span><br><span class="line"><span class="comment"># will be abbreviated using [...]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source-NAT: Change sender to 123.123.123.123</span></span><br><span class="line">iptables [...] -j SNAT --to-source 123.123.123.123</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mask: Change sender to outgoing network interface</span></span><br><span class="line">iptables [...] -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Destination-NAT: Change receipient to 123.123.123.123, port 22</span></span><br><span class="line">iptables [...] -j DNAT --to-destination 123.123.123.123:22</span><br><span class="line"></span><br><span class="line"><span class="comment"># Redirect to local port 8080</span></span><br><span class="line">iptables [...] -j REDIRECT --to-ports 8080</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li><h4 id="Connect-a-private-subnet-to-the-Internet-using-NAT"><a href="#Connect-a-private-subnet-to-the-Internet-using-NAT" class="headerlink" title="Connect a private subnet to the Internet using NAT"></a>Connect a private subnet to the Internet using NAT</h4>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In case the address is dynamically assigned IP (dialup) connections</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="comment"># In case the address is static</span></span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o eth0 -j SNAT --to 10.11.12.13</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="Transparent-Proxy"><a href="#Transparent-Proxy" class="headerlink" title="Transparent Proxy"></a>Transparent Proxy</h4><p>Let us assume that we have a local net connected to the Internet using NAT. To keep the traffic low we would like to run a HTTP-proxy on port 8080 of the local network interface handling all of the http-traffic.</p>
+<p><img src="/images/transparent-proxy-en.gif" alt="transparent proxy"></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transparent proxying:</span></span><br><span class="line"><span class="comment"># (local net at eth0, proxy server at port 8080)</span></span><br><span class="line"><span class="comment"># All incoming packets going to port 80 will be redirected to port 8080</span></span><br><span class="line">iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT \</span><br><span class="line">--to-ports 8080</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.karlrupp.net/en/computer/nat_tutorial">NAT - Network Address Translation</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一叶</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  <script class="next-config" data-name="nprogress" type="application/json">{&quot;enable&quot;:true,&quot;spinner&quot;:true}</script>
+  <script src="/js/third-party/nprogress.js"></script>
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{&quot;enable&quot;:true,&quot;shortname&quot;:&quot;y8gao-github-io&quot;,&quot;count&quot;:true,&quot;i18n&quot;:{&quot;disqus&quot;:&quot;disqus&quot;}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
